@@ -4,14 +4,14 @@ NSMC(네이버 영화 리뷰 감성분석 데이터셋)에 대해 llama-3.2-Kore
 
 [BaseLine]
 - IMDB 데이터셋
-- 3B 한국어 Llama3.2 모델 (Bllossom)
-- 한국어 프롬프트
+- 3B Llama3.2 모델
+- 영어 프롬프트
 - 토큰 확률 기반 분류
 - zero-shot prompt
 
 ---
 
-## 주요 실습 주제
+## 주요 구현 사항
 
 - NSMC에 대해 Fine-tuning
 - 다양한 LoRA 설정으로 실험
@@ -30,23 +30,31 @@ NSMC(네이버 영화 리뷰 감성분석 데이터셋)에 대해 llama-3.2-Kore
 
 ---
 
-## 1. 
+## 1. NSMC에 대해 Fine-tuning
 
+- 3B 한국어 Llama3.2 모델(Bllossom) 로 변경
+- NSMC 데이터셋 적용
+- 한국어 프롬프트로 변경
+- 확률 분석 대상 토큰 변경
 
+---
 
+## 2. 다양한 LoRA 설정으로 실험
 
+- 튜닝 별 성능 비교
+- baseline / r=4 / r=2
 
+---
 
-1. NSMC(네이버 영화 리뷰 감성분석 데이터셋)에 대해 fine-tuning 수행
-2. LoRA 설정을 바꿔서 성능 테스트
-3. Few-shot 프롬프트 적용
-4. Reasoning 데이터셋 생성 및 학습
+## 3. Few-shot prompt 적용
 
+- few-shot prompt로 변경
+- 2개의 demonstration을 추가
 
+---
 
-학습을 전혀 하지 않은 Baseline 모델 결과
-r=4로 fine-tuning한 결과
-다른 r값으로 fine-tuning한 결과
-Few-shot 프롬프트를 적용한 결과(r값은 위의 2,3 둘 중 하나에 해당하면 됨)
-Reasoning 데이터셋 생성 결과
-Reasoning 데이터셋으로 fine-tuning한 모델 결과
+## 4. Reasoning data 생성 및 학습
+
+- API를 활용하여 Gemini 2.5 flash 모델로 reasoning(근거) 데이터 생성
+- NSMC 데이터와 생성한 reasoning 데이터를 연결하여 (문제-정답-근거) 순으로 데이터셋 구성
+- SFT 방식으로 sLM 학습 후 분류 성능 평가
