@@ -24,7 +24,7 @@ NSMC(네이버 영화 리뷰 감성분석 데이터셋)에 대해 llama-3.2-Kore
 
 - Python 3.8+
 - 필수 라이브러리:  
-  `torch`, `sklearn`, `numpy`, `matplotlib`, `pandas`, `scipy` 등
+  `torch`, `unsloth`, `datasets`, `trl`, `transformers`, `tqdm` 등
 
 노트북은 [Google Colab](https://colab.research.google.com/) 또는 로컬 Jupyter 환경에서 실행 가능합니다.
 
