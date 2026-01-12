@@ -79,7 +79,7 @@ NSMC(네이버 영화 리뷰 감성분석 데이터셋)에 대해 llama-3.2-Kore
 ✅ accuracy: 0.6240<br><br>
 
 &lt;main point&gt;
-- 예시를 추가한 few-shot prompt로 변경 후 성능 하락
+- demonstration을 추가한 few-shot prompt로 변경 후 성능 하락
 - 잘못된 예시로 인한 성능 하락으로 보여짐
 
 ---
